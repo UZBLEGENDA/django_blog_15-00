@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Страница поиска
+{% endblock %}
+
+{% block content%}
+<div class="container">
+    <h1 class="text-center my-4">Результаты поиска ({{ posts|length }})</h1>
+    <div class="row row-gap-3">
+        {% for post in posts %}
+        <div class="col-4">
+            {% include 'components/_post-card.html' %}
+        </div>
+        {% empty %}
+        <h3 class="text-center">
+            Ничего не найдено: <b>{{ query }}</b>
+        </h3>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

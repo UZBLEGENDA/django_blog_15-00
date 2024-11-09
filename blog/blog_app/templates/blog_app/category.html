@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Категория: {{ category.name }}
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <section class="mb-5">
+        <div class="d-flex my-4 align-items-center justify-content-between">
+            <h1>{{ category.name }}</h1>
+            <div class="d-flex gap-3">
+                {% if request.environ.QUERY_STRING == 'sort=views' %}
+                <a href="?sort=views">По просмотром</a>
+                {% else %}
+                <a href="?sort=-views">По просмотром</a>
+                {% endif %}
+                {% if request.environ.QUERY_STRING == 'sort=-published_at' %}
+                <a href="?sort=published_at">По дате</a>
+                {% else %}
+                <a href="?sort=-published_at">По дате</a>
+                {% endif %}
+                {% if request.environ.QUERY_STRING == 'sort=title' %}
+                <a href="?sort=title">А-Я</a>
+                {% else %}
+                <a href="?sort=-title">А-Я</a>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="row row-gap-4">
+            {% for post in posts %}
+            <div class="col-3">
+                {% include 'components/_post-card.html' %}
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+
+{% endblock %}

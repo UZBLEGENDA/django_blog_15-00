@@ -1,0 +1,17 @@
+ <div class="card">
+     <img src="{{ post.get_preview }}" class="card-img-top" alt="..." style="height: 180px;">
+     <div class="card-body">
+         <h5 class="card-title"><strong>{{ post.title }}</strong></h5>
+         <p class="card-text">{{ post.short_description }}</p>
+     </div>
+     <ul class="list-group list-group-flush">
+         <li class="list-group-item"><b>Категория</b> - {{ post.category }}</li>
+         <li class="list-group-item"><b>Просмотры</b> - {{ post.views }}</li>
+         <li class="list-group-item"><b>Дата публикации:</b><br>{{ post.published_at }}</li>
+         <li class="list-group-item"><b>Дата обновления:</b><br>{{ post.updated_add }}</li>
+         <li class="list-group-item"><b>Автор</b> - {{ post.author }}</li>
+     </ul>
+     <div class="card-body">
+         <a href="{% url 'post_detail' post.pk %}" class="card-link">Подробнее</a>
+     </div>
+ </div>

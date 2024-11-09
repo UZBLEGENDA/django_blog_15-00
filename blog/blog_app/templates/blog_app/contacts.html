@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Контакты
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <section class="mb-5">
+        <h2 class="text-center mb-5">FAQ</h2>
+        <div class="accordion" id="accordionExample">
+            {% for faq in faqs %}
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button  {% if not forloop.first %}collapsed{% endif %}" type="button"
+                          data-bs-toggle="collapse" data-bs-target="#faq-{{ faq.pk }}" aria-expanded="true"
+                          aria-controls="collapseOne">
+                      {{ faq.question }}
+                  </button>
+                </h2>
+                <div id="faq-{{ faq.pk }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        {{ faq.answer }}
+                    </div>
+            </div>
+        </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock content %}

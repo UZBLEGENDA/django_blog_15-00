@@ -1,0 +1,11 @@
+asgiref==3.8.1
+Django==5.1.1
+Jinja2==3.1.4
+MarkupSafe==3.0.2
+modeltranslation==0.25
+pillow==10.4.0
+PyYAML==6.0.2
+render==1.0.0
+sqlparse==0.5.1
+typing_extensions==4.12.2
+tzdata==2024.1

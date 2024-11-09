@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Войти
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center mb-4">Вход в аккаунт</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button class="btn btn-dark mt-3">Войти</button>
+    </form>
+</div>
+{% endblock %}

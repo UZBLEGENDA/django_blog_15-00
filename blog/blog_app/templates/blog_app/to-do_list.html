@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Todo-list
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <h2 class="mt-5">Список задач</h2>
+    <ul class="list-group">
+        {% if tasks %}
+            {% for task in tasks %}
+                <li class="list-group-item">
+                    <strong>Названия задачи: {{ task.title }}</strong><br>
+                    Краткое описания задачи:{{ task.short_description }}<br>
+                    <p>Время выполненый задачи: {{ task.end_time }}</p>
+                </li>
+            {% endfor %}
+        {% else %}
+            <li class="list-group-item">Задачи отсутствуют</li>
+        {% endif %}
+    </ul>
+
+    <h1 class="text-center">Todo List</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-dark mt-3">Создать Задачу</button>
+    </form>
+</div>
+{% endblock %}
